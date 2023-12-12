@@ -12,10 +12,10 @@ from langchain.vectorstores import Chroma
 from transformers import VitsModel, AutoTokenizer
 import torch
 from scipy.io.wavfile import write
-import nympy as np
+import numpy as np
 import os
 
-openai_api_key = getpass.getpass('Enter OpenAI API key:')
+openai_api_key = input('Enter OpenAI API key: ')
 
 def transcribe(audio_file):
     model = whisper.load_model('base')
