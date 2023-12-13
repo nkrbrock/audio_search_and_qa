@@ -97,14 +97,12 @@ def generate_qa_audio(openai_api_key, query):
 search = gr.Interface(fn=retrieve_audio_chunk, 
             inputs=['text', gr.Audio(sources=['microphone', 'upload'], type='filepath')], 
             outputs='audio',
-            description="Find audio clips about a specific topic.",
-            server_name="0.0.0.0")
+            description="Find audio clips about a specific topic.")
 
 qa = gr.Interface(fn=generate_qa_audio, 
             inputs=['text', gr.Audio(sources=['microphone', 'upload'], type='filepath')], 
             outputs='audio',
-            description="Ask a question and receive an answer from the biblical data.",
-            server_name="0.0.0.0")
+            description="Ask a question and receive an answer from the biblical data.")
 
 demo = gr.TabbedInterface([search, qa], ["Search", "QA"])
 demo.launch()
